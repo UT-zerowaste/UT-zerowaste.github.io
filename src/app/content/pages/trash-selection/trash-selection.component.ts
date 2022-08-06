@@ -5,7 +5,7 @@ import { SelectionService } from 'src/services/selection.service';
 @Component({
   selector: 'app-trash-selection',
   templateUrl: './trash-selection.component.html',
-  styleUrls: ['./trash-selection.component.css']
+  styleUrls: ['./trash-selection.component.scss']
 })
 export class TrashSelectionComponent implements OnInit {
   selection: SelectionOption[] = [];

@@ -7,7 +7,7 @@ import { SelectionService } from 'src/services/selection.service';
 @Component({
   selector: 'app-selection-details',
   templateUrl: './selection-details.component.html',
-  styleUrls: ['./selection-details.component.css']
+  styleUrls: ['./selection-details.component.scss']
 })
 export class SelectionDetailsComponent implements OnInit {
   currentSelection = new SelectionOption();
