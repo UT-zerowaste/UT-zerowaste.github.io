@@ -9,7 +9,7 @@ import { UserInfoModalComponent } from './components/user-info-modal/user-info-m
   declarations: [
     TrashSelectionComponent,
     SelectionDetailsComponent,
-    UserInfoModalComponent
+    UserInfoModalComponent,
   ],
   imports: [
     CommonModule,

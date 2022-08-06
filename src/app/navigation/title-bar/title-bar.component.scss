@@ -1,0 +1,25 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    background-color: #bf5700;
+    box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+  }
+
+  .title, .user-email {
+    color: #FFF;
+    margin: 2px 10px 0px 7px;
+    font-size: large;
+  }
+  
+  .title {
+    flex: 1;
+  }
+  
+  .user-email {
+    text-align: end;
+    flex: 1;
+  }
+  
+  
