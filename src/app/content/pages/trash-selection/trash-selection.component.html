@@ -1,0 +1,15 @@
+<h1 style="margin-left: 20px;">Please select what you'd like to recycle</h1>
+
+<div class="container">
+    <div class="row">
+        <div *ngFor="let item of selection">
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <a routerLink="/details/{{item.id}}">
+                    <button style="margin: 30px; width: 100px; height: 100px;" type="button" class="btn btn-danger">
+                        {{item.name}}
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

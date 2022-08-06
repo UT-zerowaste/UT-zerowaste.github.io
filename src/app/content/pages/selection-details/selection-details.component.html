@@ -1,0 +1,16 @@
+<h1 style="margin: 20px">Showing details for: {{currentSelection.name}}</h1>
+
+<div class="row">
+    <div *ngFor="let item of currentDetails">
+        <div style="margin: 20px" class="col-md-2 col-sm-4 col-xs-6">
+            <input type="checkbox" id="item.id" value="item" (change)="onDetailSelected(item)">
+            <label style="margin-left: 5px;">{{item.name}}</label>
+        </div>
+    </div>
+</div>
+
+<a routerLink="/selection">
+    <button style="margin: 20px; width: 200px;" type="button" class="btn btn-primary">
+        Back to Selection
+    </button>
+</a>
