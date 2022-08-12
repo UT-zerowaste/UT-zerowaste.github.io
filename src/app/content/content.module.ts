@@ -4,6 +4,7 @@ import { TrashSelectionComponent } from './pages/trash-selection/trash-selection
 import { SelectionDetailsComponent } from './pages/selection-details/selection-details.component';
 import { RouterModule } from '@angular/router';
 import { UserInfoModalComponent } from './components/user-info-modal/user-info-modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { UserInfoModalComponent } from './components/user-info-modal/user-info-m
     UserInfoModalComponent,
   ],
   imports: [
+    FormsModule,
     CommonModule,
     RouterModule
   ]

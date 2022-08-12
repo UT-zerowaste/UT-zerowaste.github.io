@@ -6,7 +6,11 @@ import { AppComponent } from './app.component';
 import { ContentModule } from './content/content.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { NavigationModule } from './navigation/navigation.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+const materialMods = [MatFormFieldModule, MatDialogModule, MatToolbarModule];
 
 @NgModule({
   declarations: [
@@ -17,8 +21,8 @@ import { NavigationModule } from './navigation/navigation.module';
     AppRoutingModule,
     ContentModule,
     NavigationModule,
-    MatDialogModule,
-    MatToolbarModule
+    BrowserAnimationsModule,
+    materialMods
   ],
   providers: [],
   bootstrap: [AppComponent]
