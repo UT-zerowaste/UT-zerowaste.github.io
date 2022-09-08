@@ -1,59 +1,71 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { DetailSelection } from 'src/models/selection-detail.model';
-import { SelectionOption } from 'src/models/selection.model';
+import { Parent } from 'src/models/selection.model';
+import { WorldImpact } from 'src/models/world-impact.model';
+// TODO: Make a service handle the supabase calls then used generic programming
+import {
+  createClient,
+  SupabaseClient,
+} from '@supabase/supabase-js'
+import { environment } from '../environments/environment'
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class SelectionService {
-  private selection: SelectionOption[] = [ 
-  {id: 1, name: 'coffee'}, 
-  {id: 2, name: 'pizza box'}, 
-  {id: 3, name: 'banana'}, 
-  {id: 4, name: 'apple'}, 
-  {id: 5, name: 'food container'},
-  {id: 6, name: 'tea'},
-  {id: 7, name: 'plastic bag'},
-  {id: 8, name: 'bottled water'},
-  {id: 9, name: 'straws'},
-  {id: 10, name: 'glass bottles'},
-  {id: 11, name: 'book'},
-  {id: 12, name: 'toy'},
-];
+  private supabase: SupabaseClient;
 
-private details: DetailSelection[] = [ 
-  {id: 1, parentId: 1, name: 'coffee', points: 5},
-  {id: 2, parentId: 1, name: 'cup', points: 10},
-  {id: 3, parentId: 1, name: 'sleeve', points: 5},
-  {id: 4, parentId: 1, name: 'lid', points: 5},
-  {id: 5, parentId: 2, name: 'box', points: 15},
-  {id: 6, parentId: 2, name: 'paper', points: 5},
-];
-
-
-
-  public selection$: BehaviorSubject<SelectionOption[]> = new BehaviorSubject<SelectionOption[]>([]);
-  public details$: BehaviorSubject<DetailSelection[]> = new BehaviorSubject<DetailSelection[]>(this.details);
+  private selection: Parent[] = [];
+  private currentId: number | null = null;
 
   constructor() {
-    this.getSelectionOptions();
-   }
-
-  getSelectionOptions() {
-    // api call here
-    this.selection$.next(this.selection);
+    this.supabase = createClient(
+      environment.supabaseUrl,
+      environment.supabaseKey
+    );
   }
 
-  getSelectionOption(id: number): Observable<SelectionOption> {
-    // api call here
-    return of(this.selection.find(s => s.id == id)!);
+  //TODO: Make a generic method to accept most api calls
+  
+  // TODO 1?: Add in a leaderboard
+  // TODO 2: Routing needs to always redirect to selection if a user backtracks or refreshing when done
+  // TODO 3: Fix up the images issues
+  // TODO 4: General CSS and bugfixes
+  // TODO 5: World Impact list update
 
+  setCurrentSelectionId(id: number) {
+    this.currentId = id;
   }
 
-  getDetails(parentId: number): Observable<DetailSelection[]> {
-    // get details given a parentId through an api maybe
-    return this.details$.asObservable();
+  public getCurrentSelectionOption(): Observable<Parent> {
+    return of(this.selection.find(s => s.parent_id == this.currentId)!);
+  }
+
+  async getDetails(parentId: number): Promise<DetailSelection[]> {
+    var { data } = await this.supabase
+      .from('child')
+      .select('*').eq('parent_id', parentId);
+    return data as DetailSelection[];
+  }
+
+  async getWorldImpact(worldImpactId: number): Promise<WorldImpact> {
+    var { data } = await this.supabase
+      .from('world_impact')
+      .select('*').eq("id", worldImpactId).single();
+    return data as WorldImpact;
+  }
+
+  async getParents(): Promise<Parent[]> {
+    if (this.selection.length > 0) {
+      return this.selection;
+    }
+
+    var { data } = await this.supabase
+      .from('parent')
+      .select('*');
+    this.selection = data as Parent[];
+    return this.selection;
   }
 }

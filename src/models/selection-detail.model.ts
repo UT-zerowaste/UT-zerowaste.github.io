@@ -1,13 +1,16 @@
 export class DetailSelection {
-    id: number;
-    parentId: number;
+    child_id: number;
+    parent_id: number;
     name: string;
-    points: number;
+    details: string;
+    bin_type: string
+
     //TODO: Need to add an image blob if we save it in the db or image url if we save it here
     constructor() {
-        this.id = 0;
-        this.parentId = 0;
+        this.child_id = 0;
+        this.parent_id = 0;
         this.name = "";
-        this.points = 0;
+        this.details = "";
+        this.bin_type = "";
     }
 }

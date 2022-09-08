@@ -15,6 +15,7 @@ export class DialogService {
       width: width + '%',
       height: 23 + '%',
       data: data,
+      disableClose: true,
     });
   }
   

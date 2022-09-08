@@ -10,14 +10,16 @@ import { UserService } from 'src/services/user.service';
 })
 export class NavBarComponent implements OnInit {
   userEmail: string | null = null;
-  constructor(private dialogService: DialogService, private userService: UserService) {
-    this.userService.userEmail$.subscribe(email => this.userEmail = email);
-   }
+  constructor(private dialogService: DialogService, private userService: UserService) {}
 
-  ngOnInit(): void {
-    if (!this.userEmail) {
-      this.openDialog();
-    }
+  async ngOnInit() {
+    this.userService.user$.subscribe(user => {
+      this.userEmail = localStorage.getItem("userEmail") || null;
+      if (!this.userEmail) {
+        this.openDialog();
+      }
+    });
+    
   }
 
   openDialog(): void {

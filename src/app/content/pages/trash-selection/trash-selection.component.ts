@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectionOption } from 'src/models/selection.model';
+import { Router } from '@angular/router';
+import { Parent } from 'src/models/selection.model';
 import { SelectionService } from 'src/services/selection.service';
 
 @Component({
@@ -8,12 +9,17 @@ import { SelectionService } from 'src/services/selection.service';
   styleUrls: ['./trash-selection.component.scss']
 })
 export class TrashSelectionComponent implements OnInit {
-  selection: SelectionOption[] = [];
-  constructor(private selectionService: SelectionService) { }
+  selection: Parent[] = [];
+  constructor(private selectionService: SelectionService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.selectionService.selection$.subscribe(data => {
+  async ngOnInit() {
+    this.selectionService.getParents().then(data => {
       this.selection = data;
     });
+  }
+
+  showDetails(parentId: number, worldImpactId: number) {
+    this.router.navigateByUrl("/details/" + parentId);
+    localStorage.setItem("worldImpactId", worldImpactId+"");
   }
 }

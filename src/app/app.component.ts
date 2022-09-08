@@ -12,6 +12,6 @@ export class AppComponent {
   hasEmail: boolean = false;
   
   constructor(private userService: UserService) {
-    this.userService.userEmail$.subscribe(email => this.hasEmail = email != null);
+    this.userService.user$.subscribe(user => this.hasEmail = user.email != "");
   }
 }

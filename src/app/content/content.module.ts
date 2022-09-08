@@ -5,11 +5,13 @@ import { SelectionDetailsComponent } from './pages/selection-details/selection-d
 import { RouterModule } from '@angular/router';
 import { UserInfoModalComponent } from './components/user-info-modal/user-info-modal.component';
 import { FormsModule } from '@angular/forms';
+import { ResultComponent } from './pages/result/result.component';
 
 @NgModule({
   declarations: [
     TrashSelectionComponent,
     SelectionDetailsComponent,
+    ResultComponent,
     UserInfoModalComponent,
   ],
   imports: [

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DetailSelection } from 'src/models/selection-detail.model';
-import { SelectionOption } from 'src/models/selection.model';
 import { SelectionService } from 'src/services/selection.service';
 
 @Component({
@@ -10,28 +9,36 @@ import { SelectionService } from 'src/services/selection.service';
   styleUrls: ['./selection-details.component.scss']
 })
 export class SelectionDetailsComponent implements OnInit {
-  currentSelection = new SelectionOption();
-  currentDetails: DetailSelection[] = [];
-  selectedDetails: DetailSelection[] = [];
+  selectionName: string = "";
+
+  currentDetails: DetailSelection[] | null = null;
+
+  selectedDetails: number[] = [];
 
   constructor(private selectionService: SelectionService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     let currentId = parseInt(this.route.snapshot.paramMap.get('id')!);
 
-    this.selectionService.getSelectionOption(currentId).subscribe(data => this.currentSelection = data);
+    this.selectionService.setCurrentSelectionId(currentId);
 
-    this.selectionService.getDetails(currentId).subscribe(data => {
-      this.currentDetails = data.filter(detail => detail.parentId == currentId);
-     });
+    this.selectionService.getCurrentSelectionOption().subscribe(data => this.selectionName = data.name);
+
+    this.selectionService.getDetails(currentId).then(data => {
+      this.currentDetails = data;
+    });
   }
 
-  onDetailSelected(detail: DetailSelection) {
-    let index = this.selectedDetails.findIndex(d => d.id == detail.id);
-    
-    // if the detail does exist, delete it, otherwise add it
-    index != -1 ? this.selectedDetails.splice(index, 1): this.selectedDetails.push(detail);
-    console.log(this.selectedDetails);
+  onDetailSelected(itemId: number) {
+    var text = document.getElementById('#' + itemId.toString());
+
+    if (text!.style.display == "block") {
+      text!.style.display = "none";
+      this.selectedDetails = this.selectedDetails.filter(id => !(id == itemId))
+    } else {
+      text!.style.display = "block";
+      this.selectedDetails.push(itemId);
+    }
   }
 
 }

@@ -1,14 +1,12 @@
-<div>
-  <p mat-dialog-title style="font-size: 15px;" mat-dialog-title>What is your UT Email?</p>
-  <div mat-dialog-content style="margin-bottom: 15px;">
-    <input style="width: 100%;" [(ngModel)]="userEmail" placeholder="UT Email" (ngModelChange)="checkEmail()">
-  </div>
-  <div mat-dialog-actions>
-    <button  mat-button class="btn" (click)="close()">
-      Cancel
-    </button>
-    <button mat-button [disabled]="!emailVerified" class="submit btn" (click)="submit()">
-      Submit
-    </button>
-  </div>
+<p mat-dialog-title style="font-size: 15px;" mat-dialog-title>What is your UT Email?</p>
+<div mat-dialog-content style="margin-bottom: 15px;">
+  <input style="width: 100%;" [(ngModel)]="userEmail" placeholder="UT Email" (ngModelChange)="checkEmail()">
+</div>
+<div mat-dialog-actions>
+  <button mat-button [disabled]="savedEmail == null" class="btn cancel" (click)="close()">
+    Cancel
+  </button>
+  <button mat-button [disabled]="!emailVerified" class="submit btn" (click)="submit()">
+    Submit
+  </button>
 </div>
