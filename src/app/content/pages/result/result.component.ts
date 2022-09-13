@@ -12,31 +12,34 @@ export class ResultComponent implements OnInit {
   points: number = 5;
   showPointsPage: boolean = false;
   updateUserObject = {};
+
+  DFAULT_WORLD_IMPACT_ID = "1";
   constructor(private selectionService: SelectionService, private userService: UserService) {
-    let showPageVal = localStorage.getItem('showPointsPage');
+    this.userService.user$.subscribe(user => {
+      if (user.shows_ranking == null) {
+        console.log('null called')
+        this.showPointsPage = Math.random() >= 0.5 ? true : false;
+        this.updateUserObject = { ...this.updateUserObject, shows_ranking: this.showPointsPage }
+      } else {
+        this.showPointsPage = user.shows_ranking;
+      }
 
-    // What happens if the user deleted there local storage data
-    if (showPageVal) {
-      this.showPointsPage = showPageVal === "true" ? true : false;
-    } else {
-      this.showPointsPage = Math.random() >= 0.5 ? true : false;
-      localStorage.setItem('showPointsPage', this.showPointsPage + "");
-      this.updateUserObject = {...this.updateUserObject, shows_ranking: this.showPointsPage}
-    }
+      if (this.showPointsPage) {
 
-    if (this.showPointsPage) {
-      this.userService.user$.subscribe(user => {
-        this.updateUserObject = {...this.updateUserObject, finish_count: user.finish_count + this.points}
+        this.updateUserObject = { ...this.updateUserObject, finish_count: user.finish_count + this.points }
         this.userService.updateUser(this.updateUserObject);
-      })
-    } else {
-      let worldImpactId = parseInt(localStorage.getItem("worldImpactId")!);
-      this.selectionService.getWorldImpact(worldImpactId).then(worldImpact => {
-        this.worldImpactMsg = worldImpact.message;
-      });
-    }
+  
+      } else {
+  
+        let worldImpactId = parseInt(localStorage.getItem("worldImpactId") ?? this.DFAULT_WORLD_IMPACT_ID);
+        this.selectionService.getWorldImpact(worldImpactId).then(worldImpact => {
+          this.worldImpactMsg = worldImpact.message;
+        });
+
+      }
+    });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
 }
