@@ -27,13 +27,18 @@ export class SelectionService {
     );
   }
 
-  //TODO: Make a generic method to accept most api calls
   
-  // TODO 1?: Add in a leaderboard
-  // TODO 2: Routing needs to always redirect to selection if a user backtracks or refreshing when done
-  // TODO 3: Fix up the images issues
-  // TODO 4: General CSS and bugfixes
-  // TODO 5: World Impact list update
+  // List of TODO's we need to get done:
+  // TODO 1?: Add in a leaderboard?
+  // TODO 2: Fix up the images issues
+  // TODO 3: General CSS and bugfixes
+  // TODO 4: World Impact list update
+
+
+
+
+
+  //TODO: Make a generic method to accept all api calls
 
   setCurrentSelectionId(id: number) {
     this.currentId = id;

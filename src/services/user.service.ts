@@ -77,8 +77,7 @@ export class UserService {
   async isEmailAvailable(email: string): Promise<boolean> {
     var { data } = await this.supabase
       .from('users')
-      .select('*').eq('email', email).single();
-    
-    return data == null;
+      .select('*').eq('email', email);
+    return data!.length == 0;
   }
 }

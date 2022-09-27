@@ -3,11 +3,13 @@ export class User {
     created_at: Date;
     shows_ranking: boolean;
     finish_count: number;
+    successful_completions: number;
 
     constructor() {
         this.email = "";
         this.created_at = new Date();
         this.shows_ranking = false;
         this.finish_count = 0;
+        this.successful_completions = 0;
     }
 }
