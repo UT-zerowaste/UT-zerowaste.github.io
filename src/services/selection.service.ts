@@ -30,7 +30,6 @@ export class SelectionService {
   
   // List of TODO's we need to get done:
   // TODO 1?: Add in a leaderboard?
-  // TODO 2: Fix up the images issues
   // TODO 3: General CSS and bugfixes
   // TODO 4: World Impact list update
 
