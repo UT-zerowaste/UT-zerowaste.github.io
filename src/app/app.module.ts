@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,8 @@ const materialMods = [MatFormFieldModule, MatDialogModule, MatToolbarModule, Mat
     BrowserModule,
     AppRoutingModule,
     ContentModule,
+    NgxGoogleAnalyticsModule.forRoot('G-0L6N8L4M8X'),
+    NgxGoogleAnalyticsRouterModule,
     NavigationModule,
     BrowserAnimationsModule,
     materialMods
