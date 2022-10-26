@@ -4,6 +4,7 @@ export class User {
     shows_ranking: boolean;
     finish_count: number;
     successful_completions: number;
+    username: string;
 
     constructor() {
         this.email = "";
@@ -11,5 +12,6 @@ export class User {
         this.shows_ranking = false;
         this.finish_count = 0;
         this.successful_completions = 0;
+        this.username = "";
     }
 }
