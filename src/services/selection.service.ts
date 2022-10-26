@@ -29,12 +29,12 @@ export class SelectionService {
 
   
   // List of TODO's we need to get done:
-  // TODO 1?: Add in a leaderboard?
-  // TODO 3: General CSS and bugfixes
-  // TODO 4: World Impact list update
-
-
-
+  // NOTE: Most of these come from an email Pooja sent at 10/3/2022
+  // 1?: Add in a leaderboard with random usernames
+  // 2: General CSS and bugfixes
+  // 3: World Impact list update
+  // 4: Subset images
+  // 5: Page between children page and results page with a display of bins
 
 
   //TODO: Make a generic method to accept all api calls

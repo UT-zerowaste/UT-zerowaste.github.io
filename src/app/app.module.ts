@@ -10,7 +10,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavigationModule } from './navigation/navigation.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
 const materialMods = [MatFormFieldModule, MatDialogModule, MatToolbarModule, MatSnackBarModule];
 
 @NgModule({

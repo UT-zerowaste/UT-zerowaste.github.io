@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { UserInfoModalComponent } from './components/user-info-modal/user-info-modal.component';
 import { FormsModule } from '@angular/forms';
 import { ResultComponent } from './pages/result/result.component';
+import { BinViewComponent } from './pages/bin-view/bin-view.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ResultComponent } from './pages/result/result.component';
     SelectionDetailsComponent,
     ResultComponent,
     UserInfoModalComponent,
+    BinViewComponent,
   ],
   imports: [
     FormsModule,
