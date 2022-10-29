@@ -1,6 +1,6 @@
 <div style="text-align: center;">
     <div *ngIf="showPointsPage">
-        <h1>Congratulations! You've earned {{points}} points so far.</h1>
+        <h1>Congratulations! You've earned {{points}} points!</h1>
         <div *ngIf="userList">
           <div class="leaderboard">
             <h1>
@@ -15,7 +15,6 @@
           </div> 
         </div>
     </div>
-
     <div *ngIf="!showPointsPage">
         <h1>Your world impact is greatly appreciated!</h1>
         <h2>{{worldImpactMsg}}</h2>
