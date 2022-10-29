@@ -1,8 +1,20 @@
 <div style="text-align: center;">
     <div *ngIf="showPointsPage">
-        <h1>Congratulations! You've earned {{points}} points</h1>
+        <h1>Congratulations! You've earned {{points}} points!</h1>
+        <div *ngIf="userList">
+          <div class="leaderboard">
+            <h1>
+              Leaderboard
+            </h1>
+            <ol>
+                <li *ngFor="let item of userList">
+                    <mark>{{item.username}}</mark>
+                    <small>{{item.finish_count}}</small>
+                </li>
+            </ol>
+          </div> 
+        </div>
     </div>
-
     <div *ngIf="!showPointsPage">
         <h1>Your world impact is greatly appreciated!</h1>
         <h2>{{worldImpactMsg}}</h2>

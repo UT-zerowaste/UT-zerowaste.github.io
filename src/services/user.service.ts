@@ -45,11 +45,11 @@ export class UserService {
       // No nedd to update behavior subject since the user should be done with the site at this point
   }
 
-  async createUserEmail(email: string) {
+  async createUserEmail(email: string, username: string) {
     try {
       var { data } = await this.supabase
         .from('users')
-        .insert({ email: email, created_at: new Date(), shows_ranking: null, finish_count: 0 }).single();
+        .insert({ email: email, created_at: new Date(), shows_ranking: null, finish_count: 0, username: username }).single();
 
       localStorage.setItem('userEmail', email);
 
@@ -80,4 +80,13 @@ export class UserService {
       .select('*').eq('email', email);
     return data!.length == 0;
   }
+
+  async getUsers(): Promise<User[]> {
+    var { data } = await this.supabase
+      .from('users')
+      .select()
+      .order('finish_count', { ascending: false });
+    return data as User[];
+  }
+
 }
