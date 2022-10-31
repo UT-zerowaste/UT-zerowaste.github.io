@@ -1,0 +1,25 @@
+<div style="margin-top: 10px;">
+    <img src="../../../../assets/trash.jpg" alt="Trash" height="200" width="200">
+    <label>Trashcan</label>
+    <img src="../../../../assets/recycling_bin.jpg" alt="Recycling" height="200" width="200">
+    <label>Recycling Bin</label>
+    <img src="../../../../assets/compost_bin.jpg" alt="Compost" height="200" width="200">
+    <label>Compost Bin</label>
+</div>
+
+<div style="margin-top: 10px;" style="text-align: center;">
+    <p> Please place your trash in appropriate trash bins to reduce landfill waste. If unsure, go back to the previous
+        page to learn more. </p>
+    <p> Once you have placed your trash in the appropriate bin, please continue.</p>
+</div>
+
+<div class="button-selection">
+    <button style="margin: 20px; width: 150px;" type="button" class="btn btn-primary" (click)="backToDetails()">
+        Back to Details
+    </button>
+    <a routerLink="/result">
+        <button style="margin: 20px; width: 150px; float: right;" type="button" class="btn btn-primary">
+            Finished
+        </button>
+    </a>
+</div>

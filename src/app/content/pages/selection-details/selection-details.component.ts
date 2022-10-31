@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DetailSelection } from 'src/models/selection-detail.model';
 import { SelectionService } from 'src/services/selection.service';
 
@@ -15,16 +15,18 @@ export class SelectionDetailsComponent implements OnInit {
 
   selectedDetails: number[] = [];
 
-  constructor(private selectionService: SelectionService, private route: ActivatedRoute) { }
+  currentId: number | null = null;
+
+  constructor(private selectionService: SelectionService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    let currentId = parseInt(this.route.snapshot.paramMap.get('id')!);
+    this.currentId = parseInt(this.route.snapshot.paramMap.get('id')!);
 
-    this.selectionService.setCurrentSelectionId(currentId);
+    this.selectionService.setCurrentSelectionId(this.currentId);
 
     this.selectionService.getCurrentSelectionOption().subscribe(data => this.selectionName = data.name);
 
-    this.selectionService.getDetails(currentId).then(data => {
+    this.selectionService.getDetails(this.currentId).then(data => {
       this.currentDetails = data;
     });
   }
@@ -39,6 +41,10 @@ export class SelectionDetailsComponent implements OnInit {
       text!.style.display = "block";
       this.selectedDetails.push(itemId);
     }
+  }
+
+  showBinPage() {
+    this.router.navigateByUrl("/bin-view/" + this.currentId);
   }
 
 }

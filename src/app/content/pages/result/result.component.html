@@ -1,22 +1,26 @@
-<div style="text-align: center;">
-    <div *ngIf="showPointsPage">
-        <h1>Congratulations! You've earned {{points}} points!</h1>
-        <div *ngIf="userList">
-          <div class="leaderboard">
-            <h1>
-              Leaderboard
-            </h1>
-            <ol>
-                <li *ngFor="let item of userList">
-                    <mark>{{item.username}}</mark>
-                    <small>{{item.finish_count}}</small>
-                </li>
-            </ol>
-          </div> 
-        </div>
+<div style="text-align: center;" >
+  <div *ngIf="showPointsPage">
+    <h1>Congratulations! You've earned {{points}} points!</h1>
+    <div *ngIf="userList">
+      <div class="leaderboard">
+        <h1>
+          Leaderboard
+        </h1>
+        <ol>
+          <li *ngFor="let item of userList">
+            <mark>{{item.username}}</mark>
+            <small>{{item.finish_count}}</small>
+          </li>
+        </ol>
+      </div>
     </div>
-    <div *ngIf="!showPointsPage">
-        <h1>Your world impact is greatly appreciated!</h1>
-        <h2>{{worldImpactMsg}}</h2>
-    </div>
+  </div>
+  <div *ngIf="!showPointsPage">
+    <h1>Your world impact is greatly appreciated!</h1>
+    <h2>{{worldImpactMsg}}</h2>
+  </div>
 </div>
+
+<p style="text-align: center;"> For more information about UT's Zero Waste Program, please
+  <a href="https://facilitiesservices.utexas.edu/divisions/support/zero-waste-program"> click here.</a>
+</p> 
