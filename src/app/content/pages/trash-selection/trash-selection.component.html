@@ -1,11 +1,11 @@
 <h1 style="margin-left: 20px;">Please select what you'd like to recycle</h1>
-<div class="flex-container">
+<div class="flex-container" style="justify-content: center;">
     <div *ngFor="let item of selection">
         <!-- outerLink="/details/{{item.parent_id}} -->
         <a style="flex-direction: column;" (click)="showDetails(item.parent_id, item.world_impact)">
             <button style="margin: 30px;" type="button" class="btn">
                 <div style="display: flex; flex-direction: column;">
-                    <img src="{{item.url}}" width="200" height="200">
+                    <img src="{{item.url}}" width="200" height="200" style="object-fit: cover;">
                 <span style="font-size:16px; margin-top: 10px;">{{item.name}}</span>
                 </div>
             </button>
