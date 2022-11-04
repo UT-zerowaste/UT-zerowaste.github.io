@@ -10,10 +10,10 @@ Body
 body {
   min-height: 450px;
   height: 100vh;
-  margin: 0;
+  margin: 0;  
   background: radial-gradient(ellipse farthest-corner at center top, #f39264 0%, #f2606f 100%);
   color: #fff;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;  
 }
 
 
@@ -21,9 +21,8 @@ body {
 Leaderboard
 --------------------*/
 .leaderboard {
-  margin-top: 20px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90vw;
@@ -33,7 +32,7 @@ Leaderboard
   box-shadow: 0 7px 30px rgba(62, 9, 11, .3);
 
   h1 {
-    font-size: 18px;
+    font-size: 25px;
     color: #e1e1e1;
     padding: 12px 13px 18px;
 
@@ -48,21 +47,32 @@ Leaderboard
 
   }
 
-  ol li {
-    background: #e0574f;
-    &::after {
-      background: #e0574f;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
-    }
-
-    & mark {
-
-      &::before,
-      &::after {
-        border-top: 6px solid #ba4741;
-        bottom: -7px;
-      }
-    }
+  ol .normal-user{
+	background: #e0574f;
+        &::after {
+          background: #e0574f;
+          box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+        }
+        &::before {
+          content: counter(leaderboard);
+          position: absolute;
+          z-index: 2;
+          top: 15px;
+          left: 15px;
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          color: #c24448;
+          background: #fff;
+          border-radius: 20px;
+          text-align: center;
+        }
+        & mark {
+          &::before, &::after {
+            border-top: 6px solid #ba4741;
+            bottom: -7px;
+          }
+        }	
   }
 
   ol {
@@ -79,24 +89,11 @@ Leaderboard
       backface-visibility: hidden;
       transform: translateZ(0) scale(1.0, 1.0);
 
-      &::marker {
-        font-size: 0;
+      &::marker{
+	font-size: 0;
       }
 
-      &::before {
-        content: counter(leaderboard);
-        position: absolute;
-        z-index: 2;
-        top: 15px;
-        left: 15px;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        color: #c24448;
-        background: #fff;
-        border-radius: 20px;
-        text-align: center;
-      }
+     
 
       mark {
         position: absolute;
@@ -110,8 +107,7 @@ Leaderboard
         background: none;
         color: #fff;
 
-        &::before,
-        &::after {
+        &::before, &::after {
           content: '';
           position: absolute;
           z-index: 1;
@@ -136,7 +132,7 @@ Leaderboard
         z-index: 2;
         display: block;
         text-align: right;
-        color: white;
+	color: white;
       }
 
       &::after {
@@ -152,16 +148,10 @@ Leaderboard
         // transform: scaleX(1.06) scaleY(1.03);
         transition: all .3s ease-in-out;
         opacity: 0;
-        color: white;
+	color: white;
       }
 
-      &:nth-child(1) {
-        background: #fa6855;
-
-        &::after {
-          background: #fa6855;
-        }
-      }
+      
     }
 
 
@@ -177,8 +167,38 @@ Leaderboard
   width: 50vw;
   max-width: 200px;
   padding: 10px;
-
+  
   img {
     max-width: 100%;
   }
+}
+
+
+ol .current-user{
+  background: #6ad672;
+        &::after {
+          background: #6ad672;
+          box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+        }
+        &::before {
+          content: counter(leaderboard);
+          position: absolute;
+          z-index: 2;
+          top: 15px;
+          left: 15px;
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          color: #6ad672;
+          background: #fff;
+          border-radius: 20px;
+          text-align: center;
+        }
+        & mark {
+          &::before, &::after {
+            border-top: 6px solid #6ad672;
+            bottom: -7px;
+            color: #6ad672;
+          }
+        }	
 }

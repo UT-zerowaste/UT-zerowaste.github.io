@@ -14,6 +14,7 @@ export class ResultComponent implements OnInit {
   showPointsPage: boolean = false;
   updateUserObject = {};
   userList: User[] | null = null;
+  currentUsername = "";
 
   // Used if the user decides to clear their local storage for some reason
   DFAULT_WORLD_IMPACT_ID = "1";
@@ -42,9 +43,13 @@ export class ResultComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-      this.userService.getUsers().then(data => {
-        this.userList = data;
-        console.log(this.userList);
-      });
+    this.userService.getUsers().then(data => {
+      this.userList = data;
+      console.log(this.userList);
+    });
+     this.userService.user$.subscribe(user => {
+      this.currentUsername = user.username;
+     })
+     console.log(this.currentUsername);
   }
 }
