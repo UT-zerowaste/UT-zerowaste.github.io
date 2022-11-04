@@ -22,7 +22,7 @@ Leaderboard
 --------------------*/
 .leaderboard {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90vw;
@@ -32,7 +32,7 @@ Leaderboard
   box-shadow: 0 7px 30px rgba(62, 9, 11, .3);
 
   h1 {
-    font-size: 18px;
+    font-size: 25px;
     color: #e1e1e1;
     padding: 12px 13px 18px;
 
@@ -47,13 +47,26 @@ Leaderboard
 
   }
 
-  ol li{
+  ol .normal-user{
 	background: #e0574f;
         &::after {
           background: #e0574f;
           box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
         }
-
+        &::before {
+          content: counter(leaderboard);
+          position: absolute;
+          z-index: 2;
+          top: 15px;
+          left: 15px;
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          color: #c24448;
+          background: #fff;
+          border-radius: 20px;
+          text-align: center;
+        }
         & mark {
           &::before, &::after {
             border-top: 6px solid #ba4741;
@@ -80,20 +93,7 @@ Leaderboard
 	font-size: 0;
       }
 
-      &::before {
-        content: counter(leaderboard);
-        position: absolute;
-        z-index: 2;
-        top: 15px;
-        left: 15px;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        color: #c24448;
-        background: #fff;
-        border-radius: 20px;
-        text-align: center;
-      }
+     
 
       mark {
         position: absolute;
@@ -151,12 +151,7 @@ Leaderboard
 	color: white;
       }
 
-      &:nth-child(1) {
-        background: #fa6855;
-        &::after {
-          background: #fa6855;
-        }
-      }
+      
     }
 
 
@@ -176,4 +171,34 @@ Leaderboard
   img {
     max-width: 100%;
   }
+}
+
+
+ol .current-user{
+  background: #6ad672;
+        &::after {
+          background: #6ad672;
+          box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+        }
+        &::before {
+          content: counter(leaderboard);
+          position: absolute;
+          z-index: 2;
+          top: 15px;
+          left: 15px;
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          color: #6ad672;
+          background: #fff;
+          border-radius: 20px;
+          text-align: center;
+        }
+        & mark {
+          &::before, &::after {
+            border-top: 6px solid #6ad672;
+            bottom: -7px;
+            color: #6ad672;
+          }
+        }	
 }
