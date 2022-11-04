@@ -1,6 +1,6 @@
 <div style="text-align: center;">
     <div *ngIf="showPointsPage">
-        <h1>Congratulations! You've earned {{points}} points so far.</h1>
+        <h1>Congratulations! You've earned {{points}} points!</h1>
         <div *ngIf="userList">
           <div class="leaderboard">
             <h1>
@@ -18,7 +18,10 @@
           </div> 
         </div>
     </div>
-
+    <div *ngIf="!showPointsPage">
+      <h1>Your world impact is greatly appreciated!</h1>
+      <h2>{{worldImpactMsg}}</h2>
+    </div>
     <div *ngIf="!showPointsPage">
         <h1>Your world impact is greatly appreciated!</h1>
         <h2>{{worldImpactMsg}}</h2>
@@ -48,3 +51,6 @@
 	c0-1.097,0.908-1.99,2.024-1.99c1.117,0,2.025,0.893,2.025,1.99C23.241,6.246,22.333,7.138,21.215,7.138z"/>
       </symbol>
 </svg>
+<p style="text-align: center;"> For more information about UT's Zero Waste Program, please
+  <a href="https://facilitiesservices.utexas.edu/divisions/support/zero-waste-program"> click here.</a>
+</p> 

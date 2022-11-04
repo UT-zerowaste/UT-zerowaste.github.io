@@ -3,7 +3,8 @@ export class DetailSelection {
     parent_id: number;
     name: string;
     details: string;
-    bin_type: string
+    bin_type: string;
+    url: string;
 
     //TODO: Need to add an image blob if we save it in the db or image url if we save it here
     constructor() {
@@ -12,5 +13,6 @@ export class DetailSelection {
         this.name = "";
         this.details = "";
         this.bin_type = "";
+        this.url = "";
     }
 }

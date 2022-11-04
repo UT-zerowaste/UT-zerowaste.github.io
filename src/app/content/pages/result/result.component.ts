@@ -30,7 +30,7 @@ export class ResultComponent implements OnInit {
 
       if (this.showPointsPage) {
         this.updateUserObject = { ...this.updateUserObject, finish_count: user.finish_count + this.points };
-        this.points = user.finish_count;
+        this.points += user.finish_count;
       } else {
         let worldImpactId = parseInt(localStorage.getItem("worldImpactId") ?? this.DFAULT_WORLD_IMPACT_ID);
         this.selectionService.getWorldImpact(worldImpactId).then(worldImpact => {
