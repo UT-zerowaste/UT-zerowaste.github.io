@@ -85,6 +85,7 @@ export class UserService {
     var { data } = await this.supabase
       .from('users')
       .select()
+      .eq('shows_ranking', true)
       .order('finish_count', { ascending: false });
     return data as User[];
   }
