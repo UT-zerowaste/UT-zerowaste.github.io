@@ -48,9 +48,9 @@ Leaderboard
   }
 
   ol .normal-user{
-	background: #e0574f;
+	background: #ffffff;
         &::after {
-          background: #e0574f;
+          background: #ffffff;
           box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
         }
         &::before {
@@ -62,17 +62,54 @@ Leaderboard
           width: 20px;
           height: 20px;
           line-height: 20px;
-          color: #c24448;
-          background: #fff;
+          color: #fff;
+          background: #cc5500;
           border-radius: 20px;
           text-align: center;
         }
         & mark {
+        color: #cc5500;
           &::before, &::after {
-            border-top: 6px solid #ba4741;
+            border-top: 6px solid #ffffff;
             bottom: -7px;
           }
         }	
+        small{
+          color: #cc5500;
+        }
+  }
+
+  ol .current-user{
+    background: #cc5500;
+          &::after {
+            background: #cc5500;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+          }
+          &::before {
+            content: counter(leaderboard);
+            position: absolute;
+            z-index: 2;
+            top: 15px;
+            left: 15px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            color: #cc5500;
+            background: #fff;
+            border-radius: 20px;
+            text-align: center;
+          }
+          & mark {
+            color: #ffffff;
+            &::before, &::after {
+              border-top: 6px solid #cc5500;
+              bottom: -7px;
+              color: #cc5500;
+            }
+          }	
+          small{
+            color: #fff;
+          }
   }
 
   ol {
@@ -93,8 +130,6 @@ Leaderboard
 	font-size: 0;
       }
 
-     
-
       mark {
         position: absolute;
         z-index: 2;
@@ -105,7 +140,6 @@ Leaderboard
         padding: 18px 10px 18px 50px;
         margin: 0;
         background: none;
-        color: #fff;
 
         &::before, &::after {
           content: '';
@@ -132,7 +166,6 @@ Leaderboard
         z-index: 2;
         display: block;
         text-align: right;
-	color: white;
       }
 
       &::after {
@@ -148,7 +181,7 @@ Leaderboard
         // transform: scaleX(1.06) scaleY(1.03);
         transition: all .3s ease-in-out;
         opacity: 0;
-	color: white;
+        color: white;
       }
 
       
@@ -174,31 +207,3 @@ Leaderboard
 }
 
 
-ol .current-user{
-  background: #6ad672;
-        &::after {
-          background: #6ad672;
-          box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
-        }
-        &::before {
-          content: counter(leaderboard);
-          position: absolute;
-          z-index: 2;
-          top: 15px;
-          left: 15px;
-          width: 20px;
-          height: 20px;
-          line-height: 20px;
-          color: #6ad672;
-          background: #fff;
-          border-radius: 20px;
-          text-align: center;
-        }
-        & mark {
-          &::before, &::after {
-            border-top: 6px solid #6ad672;
-            bottom: -7px;
-            color: #6ad672;
-          }
-        }	
-}

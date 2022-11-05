@@ -15,6 +15,7 @@ export class ResultComponent implements OnInit {
   updateUserObject = {};
   userList: User[] | null = null;
   currentUsername = "";
+  rank:string = ""
 
   // Used if the user decides to clear their local storage for some reason
   DFAULT_WORLD_IMPACT_ID = "1";
@@ -43,13 +44,25 @@ export class ResultComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.userService.getUsers().then(data => {
-      this.userList = data;
-      console.log(this.userList);
-    });
+    
      this.userService.user$.subscribe(user => {
       this.currentUsername = user.username;
+      this.userService.getUsers().then(data => {
+        this.userList = data;
+        if (this.userList != null) {
+          for(let i = 0; i < this.userList.length; i++) {
+            if (this.currentUsername == this.userList[i].username) {
+              this.rank = "" + (i + 1) + nth(i + 1);
+              break;
+            }
+          }
+          this.userList = this.userList.slice(0, 10);
+        }
+      });
+      
      })
-     console.log(this.currentUsername);
   }
 }
+
+function nth(n: number){return["st","nd","rd"][((n+90)%100-10)%10-1]||"th"}
+
