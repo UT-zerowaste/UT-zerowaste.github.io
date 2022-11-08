@@ -69,12 +69,15 @@ export class UserInfoModalComponent {
         }else{
           this.userService.updateUserEmail(this.userEmail!);
         }
-        this.close();
+        
       } else {
+        localStorage.setItem('userEmail', this.userEmail!);
+        this.userService.getUserEmail(this.userEmail!)
         // Snackbar Service
-        this.snackBarService.show("That email has already been taken!")
+        // this.snackBarService.show("That email has already been taken!")
       }
     });
+    this.close();
   }
 
   close() {
