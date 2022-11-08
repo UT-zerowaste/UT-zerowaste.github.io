@@ -7,6 +7,7 @@ import { UserInfoModalComponent } from './components/user-info-modal/user-info-m
 import { FormsModule } from '@angular/forms';
 import { ResultComponent } from './pages/result/result.component';
 import { BinViewComponent } from './pages/bin-view/bin-view.component';
+import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,8 @@ import { BinViewComponent } from './pages/bin-view/bin-view.component';
     ResultComponent,
     UserInfoModalComponent,
     BinViewComponent,
+    WelcomePageComponent
+
   ],
   imports: [
     FormsModule,

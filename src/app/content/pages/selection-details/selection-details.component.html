@@ -2,21 +2,21 @@
     <h4 style="margin: 20px; font-weight: bold;">Showing details for: {{selectionName}}</h4>
     <div style="margin: 30px 20px;" *ngFor="let item of currentDetails">
         <input type="checkbox" id="{{item.child_id}}" value="item" (change)="onDetailSelected(item.child_id)">
-        <label for="{{item.child_id}}" style="margin-left: 5px; font-size:13px;">{{item.name}}</label>
+        <label for="{{item.child_id}}" style="margin-left: 5px; font-size:20px;">{{item.name}}</label>
         <div id="#{{item.child_id}}" style="display: none; margin: 10px 0px 0px 20px;">
             <img src="{{item.url}}" width="200" height="200" style="margin-bottom: 10px;">
-            <p>Trashcan - {{item.bin_type}}</p>
-            <p *ngIf="item.details">Details - {{item.details}}</p>
+            <h4>Trashcan - {{item.bin_type}}</h4>
+            <h4 *ngIf="item.details">Details - {{item.details}}</h4>
         </div>
     </div>
 
     <div class="button-selection">
         <a routerLink="/selection">
-            <button style="margin: 20px; width: 150px;" type="button" class="btn btn-primary">
+            <button style="margin: 20px; width: 150px; font-size: 16px;" type="button" class="btn btn-primary">
                 Back to Selection
             </button>
         </a>
-            <button style="margin: 20px; width: 150px; float: right;" type="button" class="btn btn-primary" (click)="showBinPage()"
+            <button style="margin: 20px; width: 150px; float: right; font-size: 16px;" type="button" class="btn btn-primary" (click)="showBinPage()"
                 [disabled]="this.selectedDetails.length == 0">
                 Continue
             </button>

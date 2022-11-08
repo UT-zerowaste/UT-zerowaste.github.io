@@ -10,10 +10,10 @@ Body
 body {
   min-height: 450px;
   height: 100vh;
-  margin: 0;  
+  margin: 0;
   background: radial-gradient(ellipse farthest-corner at center top, #f39264 0%, #f2606f 100%);
   color: #fff;
-  font-family: 'Open Sans', sans-serif;  
+  font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -47,69 +47,81 @@ Leaderboard
 
   }
 
-  ol .normal-user{
-	background: #ffffff;
-        &::after {
-          background: #ffffff;
-          box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
-        }
-        &::before {
-          content: counter(leaderboard);
-          position: absolute;
-          z-index: 2;
-          top: 15px;
-          left: 15px;
-          width: 20px;
-          height: 20px;
-          line-height: 20px;
-          color: #fff;
-          background: #cc5500;
-          border-radius: 20px;
-          text-align: center;
-        }
-        & mark {
-        color: #cc5500;
-          &::before, &::after {
-            border-top: 6px solid #ffffff;
-            bottom: -7px;
-          }
-        }	
-        small{
-          color: #cc5500;
-        }
+  ol .normal-user {
+    background: #ffffff;
+
+    &::after {
+      background: #ffffff;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+    }
+
+    &::before {
+      content: counter(leaderboard);
+      position: absolute;
+      z-index: 2;
+      top: 15px;
+      left: 15px;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      color: #fff;
+      background: #cc5500;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    & mark {
+      color: #cc5500;
+
+      &::before,
+      &::after {
+        border-top: 6px solid #ffffff;
+        bottom: -7px;
+      }
+    }
+
+    small {
+      color: #cc5500;
+    }
   }
 
-  ol .current-user{
+  ol .current-user {
     background: #cc5500;
-          &::after {
-            background: #cc5500;
-            box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
-          }
-          &::before {
-            content: counter(leaderboard);
-            position: absolute;
-            z-index: 2;
-            top: 15px;
-            left: 15px;
-            width: 20px;
-            height: 20px;
-            line-height: 20px;
-            color: #cc5500;
-            background: #fff;
-            border-radius: 20px;
-            text-align: center;
-          }
-          & mark {
-            color: #ffffff;
-            &::before, &::after {
-              border-top: 6px solid #cc5500;
-              bottom: -7px;
-              color: #cc5500;
-            }
-          }	
-          small{
-            color: #fff;
-          }
+
+    &::after {
+      background: #cc5500;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+    }
+
+    &::before {
+      content: counter(leaderboard);
+      position: absolute;
+      z-index: 2;
+      top: 15px;
+      left: 15px;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      color: #cc5500;
+      background: #fff;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    & mark {
+      color: #ffffff;
+
+      &::before,
+      &::after {
+        border-top: 6px solid #cc5500;
+        bottom: -7px;
+        color: #cc5500;
+      }
+    }
+
+    small {
+      color: #fff;
+    }
   }
 
   ol {
@@ -126,8 +138,8 @@ Leaderboard
       backface-visibility: hidden;
       transform: translateZ(0) scale(1.0, 1.0);
 
-      &::marker{
-	font-size: 0;
+      &::marker {
+        font-size: 0;
       }
 
       mark {
@@ -141,7 +153,8 @@ Leaderboard
         margin: 0;
         background: none;
 
-        &::before, &::after {
+        &::before,
+        &::after {
           content: '';
           position: absolute;
           z-index: 1;
@@ -184,13 +197,12 @@ Leaderboard
         color: white;
       }
 
-      
+
     }
 
 
   }
 }
-
 
 .the-most {
   position: fixed;
@@ -200,10 +212,15 @@ Leaderboard
   width: 50vw;
   max-width: 200px;
   padding: 10px;
-  
+
   img {
     max-width: 100%;
   }
 }
 
-
+div>label {
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18px;
+}

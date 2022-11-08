@@ -15,7 +15,7 @@ const materialMods = [MatFormFieldModule, MatDialogModule, MatToolbarModule, Mat
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
