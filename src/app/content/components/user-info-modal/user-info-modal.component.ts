@@ -16,7 +16,7 @@ export class UserInfoModalComponent {
   savedEmail = localStorage.getItem("userEmail") ?? null;
   username: string | null = null
 
-  emailRegex = new RegExp('[a-zA-Z]{2,4}[0-9]{4,6}');
+  emailRegex = new RegExp('[a-zA-Z]{2,4}[0-9]{3,6}');
 
   constructor(private userService: UserService, private dialogService: DialogService, private snackBarService: SnackbarService) {
     this.userService.user$.subscribe(user => {
@@ -60,6 +60,7 @@ export class UserInfoModalComponent {
   }
 
   submit() {
+    this.userEmail!.toLowerCase() // make sure eid is lowercase
     this.userService.isEmailAvailable(this.userEmail!).then(isAvailable => {
       if (isAvailable) {
         // check if there's an email tha alreay exists. If not, then we know we need to create a user, else update
