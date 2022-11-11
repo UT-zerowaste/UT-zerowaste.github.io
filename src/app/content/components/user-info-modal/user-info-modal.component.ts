@@ -16,7 +16,7 @@ export class UserInfoModalComponent {
   savedEmail = localStorage.getItem("userEmail") ?? null;
   username: string | null = null
 
-  emailRegex = new RegExp('[a-zA-Z]{2,4}[0-9]{3,6}');
+  emailRegex = new RegExp('[a-zA-Z]{2,4}[0-9]{2,6}');
 
   constructor(private userService: UserService, private dialogService: DialogService, private snackBarService: SnackbarService) {
     this.userService.user$.subscribe(user => {
